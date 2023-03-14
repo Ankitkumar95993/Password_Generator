@@ -9,13 +9,13 @@ const lowercasecheck = document.querySelector("#lowercase");
 const numberscheck = document.querySelector("#number");
 const symbolscheck = document.querySelector("#symbols");
 const indicator = document.querySelector("[data-indicator]");
-const genButton = document.querySelector(".GenerateButton");
+const generateBtn = document.querySelector(".GenerateBtn");
 const allcheckbox = document.querySelector("input[type=checkbox]");
 let symbols = "`!@#$%^&*(){}[]_+-<>?/|'\":;=";
 
 let password = "";
 let passwordLength = 15;
-let checkbox = 1;
+let checkCount = 1;
 handleSlider();
 
 function handleSlider() {
@@ -71,3 +71,47 @@ function calStrength() {
     setIndicator("#f00");
   }
 }
+
+async function copyContent() {
+  try {
+    await navigator.clipboard.writeText(passwordDisplay.value);
+    copyMsg.innerText = "copied";
+  } catch (e) {
+    copyMsg.innerText = "Failed";
+  }
+
+  copyMsg.classList.add("active");
+  setTimeout(() => {
+    copyMsg.classList.remove("active");
+  }, 2000);
+}
+
+inputSlider.addEventListener('input',(e)=>{
+    passwordLength=e.target.value;
+    handleSlider();
+})
+
+copyBtn.addEventListener('click',()=>{
+  if(passwordDisplay.value)
+      copyContent();
+})
+
+function handlecheckBoxChange()
+{
+    checkCount = 0;
+    allcheckbox.forEach((checkbox)=>{
+        if(checkbox().checked)
+           checkCount++;
+    });
+    //special case
+    if(passwordLength<checkCount)
+        passwordLength = checkCount;
+        handleSlider();
+}
+
+allcheckbox.array.forEach(checkbox => {
+     checkbox.addEventListener('change',handlecheckBoxChange());
+})
+
+generateBtn.addEventListener('click',)
+
