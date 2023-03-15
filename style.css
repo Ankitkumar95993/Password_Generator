@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'League spartan', sans-serif;
+}
+
+:root{
+
+}
+
+body{
+    width: 100vw;
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background:linear-gradient(90deg, rgba(0, 205, 255, 1) 0%, rgba(212, 101, 0, 1) 54%, rgba(238, 130, 238, 1) 100%);
+
+}
+.container{
+
+    
+}
+
+h1{
+    color:white;
+    opacity:0.75;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.display-container{
+    position:relative;
+    background:linear-gradient(90deg, rgba(0, 255, 235, 1) 0%, rgba(7, 58, 187, 1) 100%);
+    border-radius: 1rem;
+    border-bottom: 0.35 solid  black;
+    width:10em;
+
+}
+
+  
